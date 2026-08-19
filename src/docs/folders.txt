@@ -1,0 +1,82 @@
+
+
+
+
+
+
+
+
+
+
+
+src/
+├── app/
+│   ├── core/                        # Servicios globales, configuración e infraestructura
+│   │   ├── auth/                    # Autenticación, tokens, guards
+│   │   ├── http/                    # Interceptores HTTP globales, manejo de errores
+│   │   ├── mocks/                   # DATA MOCKUP Y SIMULACIÓN LOCAL
+│   │   │   ├── data/                # Archivos JSON / constantes de mock
+│   │   │   │   ├── tasks.mock.ts
+│   │   │   │   └── users.mock.ts
+│   │   │   ├── mock.interceptor.ts  # Interceptor que desvía HTTP a Mocks (opcional)
+│   │   │   └── mock-services/       # Implementaciones Mock de la capa Data-Access
+│   │   └── providers/               # Configuración de inyección de dependencias
+│   │
+│   ├── shared/                      # Elementos transversales sin lógica de negocio
+│   │   ├── ui/                      # Dumb components globales (botones, modales, spinners)
+│   │   ├── pipes/                   # Pipes reutilizables
+│   │   └── directives/              # Directivas personalizadas
+│   │
+│   ├── domains/                     # DOMINIOS DE NEGOCIO (DDD Bounded Contexts)
+│   │   ├── tasks/                   # Dominio Ejemplo: Gestión de Tareas
+│   │   │   ├── data-access/         # Capa de datos (Servicios API, State Management, DTOs)
+│   │   │   │   ├── adapters/        # Mapeadores Backend (Python DTO) <-> Frontend Model
+│   │   │   │   ├── ports/           # Interfaces/Clases Abstractas de los Servicios
+│   │   │   │   ├── services/        # Implementación real de comunicación HTTP
+│   │   │   │   └── store/           # Estado reactivo (Signals / NgRx)
+│   │   │   ├── models/              # Modelos e Interfaces de Dominio puros
+│   │   │   │   ├── task.model.ts
+│   │   │   │   └── task-status.enum.ts
+│   │   │   ├── ui/                  # Dumb Components específicos del dominio (TaskCardComponent)
+│   │   │   └── features/            # Smart Components y Vistas de Rutas
+│   │   │       ├── task-list/
+│   │   │       └── task-detail/
+│   │   │
+│   │   └── users/                   # Otro Dominio independiente
+│   │       ├── data-access/
+│   │       ├── models/
+│   │       ├── ui/
+│   │       └── features/
+│   │
+│   ├── app.config.ts                # Configuración global de Angular Standalone
+│   ├── app.routes.ts                # Configuración de rutas raíz
+│   └── app.component.ts             # Shell Component
+│
+├── environments/                    # Configuración de entornos
+│   ├── environment.development.ts  # Configuración Local (useMock: true)
+│   └── environment.ts              # Configuración Producción (useMock: false)
+
+
+
+
+
+
+src/
+├── docs/                             # 1. DOCUMENTACIÓN GLOBAL Y PROVISIONAL
+│   ├── README.md                     # Visión general del proyecto y Setup local
+│   ├── architecture/                 # Decisiones de diseño (ADRs)
+│   │   ├── 0001-ddd-structure.md
+│   │   └── 0002-mock-strategy.md
+│   ├── domain-model.md               # Borrador del modelo de dominio global
+│   └── api-contracts/                # 2. CONTRATOS PROVISIONALES (Con Backend Python)
+│       ├── tasks-api.openapi.yaml    # Especificación OpenAPI/Swagger borrador
+│       └── mock-payloads.md          # Estructura JSON esperada de los Mocks
+│
+├── app/
+│   ├── domains/
+│   │   ├── tasks/
+│   │   │   ├── README.md             # 3. DOCUMENTACIÓN ESPECÍFICA DE DOMINIO
+│   │   │   ├── data-access/
+│   │   │   ├── models/
+│   │   │   └── ...
+
