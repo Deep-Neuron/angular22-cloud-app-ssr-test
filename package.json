@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --host 0.0.0.0 --allowed-hosts=all",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "start": "nx serve --host 0.0.0.0 --allowed-hosts=all",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development",
+    "test": "nx test",
     "serve:ssr:angular22-app": "node dist/angular22-app/server/server.mjs"
   },
   "private": true,
-  "packageManager": "npm@11.12.1",
+  "packageManager": "pnpm@10.0.0",
   "dependencies": {
     "@angular/common": "^22.1.0",
     "@angular/compiler": "^22.1.0",
@@ -25,9 +25,14 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/core": "^22.1.4",
+    "@angular-devkit/schematics": "^22.1.4",
     "@angular/build": "^22.1.4",
     "@angular/cli": "^22.1.4",
     "@angular/compiler-cli": "^22.1.0",
+    "@nx/angular": "23.1.1",
+    "@nx/workspace": "23.1.1",
+    "@schematics/angular": "^22.1.4",
     "@tailwindcss/postcss": "^4.3.3",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
@@ -35,6 +40,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "jsdom": "^28.0.0",
+    "nx": "23.1.1",
     "postcss": "^8.5.26",
     "prettier": "^3.8.1",
     "tailwind-merge": "^3.6.0",
